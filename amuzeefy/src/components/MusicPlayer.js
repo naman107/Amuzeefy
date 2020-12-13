@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import ReactPlayer from 'react-player'
 import { useDispatch, useSelector } from 'react-redux'
-import { pauseMusic } from '../redux/Actions/playbarActions'
+import { pauseMusic, playMusic } from '../redux/Actions/playbarActions'
 import '../styles/musicPlayerStyle.css'
 
 const MusicPlayer = ({ url }) => {
@@ -9,6 +9,15 @@ const MusicPlayer = ({ url }) => {
     const dispatch = useDispatch()
     const play = useSelector(state => state.playbarReducer.play)
     const loop = useSelector(state => state.playbarReducer.loop)
+
+    const handleOnPlay = () => {
+        dispatch(pauseMusic(false))
+        dispatch(playMusic(true))
+    }
+
+    const handleOnPause = () => {
+        dispatch(pauseMusic(true))
+    }
 
     return (
         <div className="music-player">
@@ -20,8 +29,8 @@ const MusicPlayer = ({ url }) => {
                 height="15rem"
                 playing={play}
                 loop={loop}
-                onPlay={() => dispatch(pauseMusic(false))}
-                onPause={() => dispatch(pauseMusic(true))}
+                onPlay={handleOnPlay}
+                onPause={handleOnPause}
             />
         </div>
     )
