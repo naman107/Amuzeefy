@@ -1,0 +1,38 @@
+.sidebar-container{
+    flex: 0.2;
+    background-color: #000000;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.sidebar-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-logo > img {
+    flex: 0.2;
+    height: 5rem;
+    width:  8rem;
+    margin-top: 1rem;
+    margin-left: -1rem;
+}
+
+.sidebar-logo > h5 {
+    flex: 0.8;
+    margin-top: 1rem;
+    color: rgb(255, 115, 0);
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-left: -1rem;
+    font-family: monospace;
+}
+
+.sidebar-container > .playlist-heading-text{
+    color: rgb(187, 187, 187);
+    margin-top: 2rem;
+    margin-left: 1.2rem;
+    font-family: monospace;
+    font-size: 1.3rem;
+}

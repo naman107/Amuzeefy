@@ -1,0 +1,65 @@
+.sidebar-options-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid rgb(46, 31, 19);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4rem;
+    cursor: pointer;
+}
+
+.sidebar-options-container > .sidebar-option-icon{
+    color: rgb(251, 94, 22);
+    height: 1.5rem;
+    width: 1.5rem;
+    padding-left: 1rem;
+}
+
+.sidebar-options-container > h4 {
+    color: rgb(146, 146, 146);
+    margin-left: 1rem;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: monospace;
+}
+
+.sidebar-options-container:hover{
+    background-color: rgb(39, 21, 1);
+    transform: scale(1.05);
+}
+
+.sidebar-options-container-with-playlist{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: blanchedalmond;
+}
+
+.sidebar-options-container-with-playlist > .sidebar-option-icon{
+    color: rgb(0, 0, 0);
+    height: 1.4rem;
+    width: 1.4rem;
+    background-color: rgb(251, 94, 22);
+    padding: 0.1rem;
+}
+
+.sidebar-options-container-with-playlist > h4 {
+    color: rgb(146, 146, 146);
+    margin-left: 0.7rem;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: monospace;
+}
+
+.sidebar-options-container-with-playlist:hover{
+    background-color: rgb(29, 17, 3);
+    transform: scale(1.05);
+}
+
+

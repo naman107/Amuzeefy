@@ -1,0 +1,84 @@
+.home-main-container{
+    flex: 0.8;
+    background-color: rgb(31, 31, 31);
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.home-main-container > .header-user-profile{
+    display: flex;
+    flex: 1;
+    height: 22vh;
+    width: 100%;
+    flex: 0.2;
+    background-color: rgb(54, 19, 2);
+    color: wheat;
+    overflow: hidden;
+        /* position: fixed; */
+}
+
+.home-main-container > .header-user-profile > .header-user-name-bio{
+    display: inline-block;
+    width: 50%;
+    flex: 0.5;
+}
+
+.home-main-container > .header-user-profile > .header-user-name-bio > .user-name{
+    color: rgb(250, 121, 0);
+    font-size: 1.7rem;
+    padding: 1rem;
+    font-family: monospace;
+    font-weight: 300;
+}
+
+.home-main-container > .header-user-profile > .header-user-name-bio > .user-bio{
+    color: rgb(238, 235, 232);
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    font-family: monospace;
+    font-style: italic;
+    flex-wrap: wrap;
+    margin-top: -0.5rem;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit {
+    flex: 0.5;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit > .header-edit-icon{
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit > .header-edit-icon > .edit-icon{
+margin-right: 1.5rem;
+margin-top: 2rem;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit > .loc-container{
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit > .loc-container > .loc-icon{
+    margin-right: 0.5rem;
+    color: rgb(238, 235, 232);
+    height: 1rem;
+    width: 1rem;
+}
+
+.home-main-container > .header-user-profile > .header-user-loc-edit > .loc-container > .loc-text{
+    margin-right: 1.5rem;
+    font-family: monospace;
+    font-size: 1.3rem;
+    color: rgb(238, 235, 232);
+}
+
+
+

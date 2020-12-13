@@ -1,0 +1,17 @@
+.music-player {
+    position: absolute;
+    margin-bottom: 3rem;
+    margin-right: 1.5rem;
+    bottom: 0;
+    right: 0;
+}
+
+.music-player > button{
+    background: none;
+    color: white;
+    border: none;
+    outline: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
