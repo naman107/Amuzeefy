@@ -23,3 +23,11 @@ export const sidebarString = {
 export const homeMainString = {
     img_placeholder: 'https://openwhyd.org/api/user/images/blank_user.gif',
 }
+
+export const storageKeys = {
+    USER_ID_STORAGE: 'USER_ID_STORAGE'
+}
+
+export const playerStrings = {
+    YOUTUBE: "youtube"
+}

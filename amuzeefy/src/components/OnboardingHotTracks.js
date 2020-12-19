@@ -8,6 +8,7 @@ import { customYoutubeURL } from '../Utils/URLs/urls'
 import MusicPlayer from './MusicPlayer';
 import ClearIcon from '@material-ui/icons/Clear';
 import { pauseMusic, playMusic } from '../redux/Actions/playbarActions'
+import { playerStrings } from '../Utils/Strings/strings'
 
 const OnboardingHotTracks = () => {
     const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const OnboardingHotTracks = () => {
     useEffect(() => {
     }, [isPlaying, musicID, isClosed])
 
-    console.log('DATA', data?.tracks);
+    // console.log('DATA', data?.tracks);
 
     return (
         <>
@@ -46,7 +47,7 @@ const OnboardingHotTracks = () => {
                         <div className="onboard-right">
                             <button onClick={() => {
                                 setIsPlaying(true)
-                                if (item.src?.id.includes("youtube")) {
+                                if (item.src?.id.includes(playerStrings.YOUTUBE)) {
                                     setMusicId(customYoutubeURL + item?.src?.id.split("=")[1])
                                 }
                                 setIsClosed(true)

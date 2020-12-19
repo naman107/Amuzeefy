@@ -61,14 +61,11 @@ const Login = () => {
 
     useEffect(() => {
         emailPasswordValidError(data)
-    }, [loading, isError])
+    }, [loading])
 
     useEffect(() => {
         emailPasswordValid(data)
-    }, [loading, isError])
-
-    useEffect(() => {
-    }, [isError, isErrorBar])
+    }, [loading])
 
     useEffect(() => {
         if (isSuccess) {

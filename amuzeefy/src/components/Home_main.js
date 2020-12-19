@@ -9,6 +9,7 @@ import OnboardingHotTracks from './OnboardingHotTracks'
 const Home_main = () => {
 
     const { data } = useSelector(state => state.userReducer.data)
+    const [isLoaded, setIsLoaded] = useState(false)
     const play = useSelector(state => state.hotTracksReducer.data)
     const dispatch = useDispatch()
 
@@ -16,9 +17,15 @@ const Home_main = () => {
         dispatch(userRequest())
     }, [])
 
+    useEffect(() => {
+        if (Boolean(data)) {
+            setIsLoaded(true)
+        }
+    }, [data])
+
     return (
         <div className='home-main-container'>
-            {Boolean(data) ?
+            {isLoaded ?
                 <div className="header-user-profile">
                     <div className="header-user-name-bio">
                         <div className="user-name">
