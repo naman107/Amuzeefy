@@ -7,8 +7,7 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { customYoutubeURL } from '../Utils/URLs/urls'
 import MusicPlayer from './MusicPlayer';
 import ClearIcon from '@material-ui/icons/Clear';
-import { pauseMusic, playMusic } from '../redux/Actions/playbarActions'
-import { playerStrings } from '../Utils/Strings/strings'
+import { pauseMusic, playMusic, showTime } from '../redux/Actions/playbarActions'
 
 const OnboardingHotTracks = () => {
     const dispatch = useDispatch()
@@ -47,7 +46,7 @@ const OnboardingHotTracks = () => {
                         <div className="onboard-right">
                             <button onClick={() => {
                                 setIsPlaying(true)
-                                if (item.src?.id.includes(playerStrings.YOUTUBE)) {
+                                if (item.src?.id.includes("youtube")) {
                                     setMusicId(customYoutubeURL + item?.src?.id.split("=")[1])
                                 }
                                 setIsClosed(true)
@@ -65,6 +64,7 @@ const OnboardingHotTracks = () => {
                         setIsClosed(false)
                         dispatch(playMusic(false))
                         dispatch(pauseMusic(true))
+                        dispatch(showTime(false))
                     }}>
                         <ClearIcon
                             style={{

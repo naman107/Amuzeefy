@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import ReactPlayer from 'react-player'
 import { useDispatch, useSelector } from 'react-redux'
-import { pauseMusic, playMusic } from '../redux/Actions/playbarActions'
+import { musicDuration, pauseMusic, playMusic, startTime } from '../redux/Actions/playbarActions'
 import '../styles/musicPlayerStyle.css'
 
 const MusicPlayer = ({ url }) => {
@@ -29,11 +29,19 @@ const MusicPlayer = ({ url }) => {
                 height="15rem"
                 playing={play}
                 loop={loop}
+                style={{ pointerEvents: 'none' }}
                 onPlay={handleOnPlay}
                 onPause={handleOnPause}
+                onDuration={(res) => dispatch(musicDuration(res))}
+                onProgress={res => {
+                    // console.log((res.playedSeconds))
+                    dispatch(startTime(res.playedSeconds))
+                }}
             />
         </div>
     )
 }
 
 export default MusicPlayer
+
+// volume onProgress 

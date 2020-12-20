@@ -8,16 +8,17 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import LoopIcon from '@material-ui/icons/Loop';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import { useDispatch, useSelector } from 'react-redux';
-import { loopMusic, pauseMusic, playMusic } from '../redux/Actions/playbarActions'
+import { loopMusic, pauseMusic, playMusic, showTime } from '../redux/Actions/playbarActions'
 
 const PlayBar = () => {
     const dispatch = useDispatch()
-    const [isPaused, setIsPaused] = useState(true)
     const pause = useSelector(state => state.playbarReducer.pause)
+    let startTime = useSelector(state => state.playbarReducer.playedSeconds)
+    const duration = useSelector(state => state.playbarReducer.duration)
+    const displayTime = useSelector(state => state.playbarReducer.show_time)
 
-    // useEffect(() => {
-    //     console.log('PAUSE VALUE', isPaused);
-    // }, [isPaused])
+    startTime = Math.floor((startTime / 60) * 100) / 100;
+    let totalTime = (duration / 60).toFixed(2)
 
     return (
         <div className="play-bar-container">
@@ -37,6 +38,7 @@ const PlayBar = () => {
                             onClick={() => {
                                 dispatch(playMusic(true))
                                 dispatch(pauseMusic(false))
+                                dispatch(showTime(true))
                             }}>
                             <PlayCircleFilledIcon className="play-icon" />
                         </button> :
@@ -44,6 +46,7 @@ const PlayBar = () => {
                                 onClick={() => {
                                     dispatch(playMusic(false))
                                     dispatch(pauseMusic(true))
+                                    dispatch(showTime(true))
                                 }}>
                                 <PauseCircleFilledIcon className="play-icon" />
                             </button>}
@@ -55,7 +58,23 @@ const PlayBar = () => {
                         </button>
                     </div>
                     <div className="progress-div">
-                        <input className="progress-music-bar" type="range" min="0" max="100" step="3" id="slider" />
+                        <div className="start-time">
+                            {displayTime ?
+                                <h5>{startTime}</h5>
+                                :
+                                <h5>0.0</h5>
+                            }
+                        </div>
+                        <div className="progress-container">
+                            <input className="progress-music-bar" type="range" min="0" max="100" step="3" id="slider" />
+                        </div>
+                        <div className="duration">
+                            {displayTime ?
+                                <h5>{totalTime}</h5>
+                                :
+                                <h5>0.0</h5>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

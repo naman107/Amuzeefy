@@ -29,5 +29,8 @@ export const hotTracksActions = {
 export const playbarActionTypes = {
     PLAY: 'PLAY',
     LOOP: 'LOOP',
-    PAUSE: 'PAUSE'
+    PAUSE: 'PAUSE',
+    START_TIME: 'START_TIME',
+    DURATION: 'DURATION',
+    SHOW_TIME: 'SHOW_TIME'
 }
