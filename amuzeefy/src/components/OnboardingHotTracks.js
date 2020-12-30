@@ -6,17 +6,15 @@ import PlaylistAddSharpIcon from '@material-ui/icons/PlaylistAddSharp';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { customYoutubeURL } from '../Utils/URLs/urls'
 import MusicPlayer from './MusicPlayer';
-import ClearIcon from '@material-ui/icons/Clear';
-import { pauseMusic, playMusic, showTime } from '../redux/Actions/playbarActions'
+import { playMusic, showArtistTrack, showArtistName, showArtistImage, setTrackSelected, closeTrackWindow } from '../redux/Actions/playbarActions'
 
 const OnboardingHotTracks = () => {
     const dispatch = useDispatch()
+    const { isClosed } = useSelector(state => state.playbarReducer)
     const { data } = useSelector(state => state.hotTracksReducer.data)
     const { loading } = useSelector(state => state.hotTracksReducer)
     const [hotTracksArray, setHotTracksArray] = useState([])
-    const [isPlaying, setIsPlaying] = useState(false)
     const [musicID, setMusicId] = useState(null)
-    const [isClosed, setIsClosed] = useState(false)
 
     useEffect(() => {
         dispatch(hotTracksRequest())
@@ -27,9 +25,10 @@ const OnboardingHotTracks = () => {
     }, [loading])
 
     useEffect(() => {
-    }, [isPlaying, musicID, isClosed])
+    }, [musicID])
 
-    // console.log('DATA', data?.tracks);
+    useEffect(() => {
+    }, [isClosed])
 
     return (
         <>
@@ -45,11 +44,15 @@ const OnboardingHotTracks = () => {
                         </div>
                         <div className="onboard-right">
                             <button onClick={() => {
-                                setIsPlaying(true)
                                 if (item.src?.id.includes("youtube")) {
                                     setMusicId(customYoutubeURL + item?.src?.id.split("=")[1])
                                 }
-                                setIsClosed(true)
+                                dispatch(showArtistImage(item.img))
+                                dispatch(showArtistName(item.name.split("-")[0]))
+                                dispatch(showArtistTrack(item.name.split("-")[1]))
+                                dispatch(playMusic(true))
+                                dispatch(setTrackSelected(true))
+                                dispatch(closeTrackWindow(true))
                             }}>
                                 <PlayCircleFilledIcon className="onboard-play-icon" />
                             </button>
@@ -57,28 +60,7 @@ const OnboardingHotTracks = () => {
                     </div>
                 )
             })}
-            {
-                isClosed ?
-                    <button onClick={() => {
-                        setIsPlaying(false)
-                        setIsClosed(false)
-                        dispatch(playMusic(false))
-                        dispatch(pauseMusic(true))
-                        dispatch(showTime(false))
-                    }}>
-                        <ClearIcon
-                            style={{
-                                color: "white",
-                                position: "absolute",
-                                top: 5,
-                                right: 40,
-                                cursor: "pointer"
-                            }}
-                        />
-                    </button>
-                    : null
-            }
-            { isPlaying ? < MusicPlayer url={musicID} /> : null}
+            { isClosed ? < MusicPlayer url={musicID} /> : null}
         </>
     )
 }

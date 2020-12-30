@@ -31,3 +31,28 @@ export const showTime = (data) => ({
     type: playbarActionTypes.SHOW_TIME,
     payload: data
 })
+
+export const showArtistImage = (data) => ({
+    type: playbarActionTypes.ARTIST_IMAGE,
+    payload: data
+})
+
+export const showArtistName = (data) => ({
+    type: playbarActionTypes.ARTIST_NAME,
+    payload: data
+})
+
+export const showArtistTrack = (data) => ({
+    type: playbarActionTypes.ARTIST_TRACK,
+    payload: data
+})
+
+export const setTrackSelected = (data) => ({
+    type: playbarActionTypes.IS_TRACK_SELECTED,
+    payload: data
+})
+
+export const closeTrackWindow = (data) => ({
+    type: playbarActionTypes.IS_CLOSED,
+    payload: data
+})

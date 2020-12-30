@@ -12,7 +12,6 @@ export default function* hotTracksSaga() {
                 skip: 2
             }
         })
-        console.log(result.data.tracks);
         yield put(hotTracksSuccess(result))
     } catch (error) {
         yield put(hotTracksFailure(error))

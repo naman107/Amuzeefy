@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import '../styles/playBarStyle.css'
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
@@ -7,12 +7,14 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import LoopIcon from '@material-ui/icons/Loop';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import ClearIcon from '@material-ui/icons/Clear';
 import { useDispatch, useSelector } from 'react-redux';
-import { loopMusic, pauseMusic, playMusic, showTime } from '../redux/Actions/playbarActions'
+import { playerStrings } from '../Utils/Strings/strings'
+import { closeTrackWindow, loopMusic, pauseMusic, playMusic, showTime, setTrackSelected } from '../redux/Actions/playbarActions'
 
 const PlayBar = () => {
     const dispatch = useDispatch()
-    const pause = useSelector(state => state.playbarReducer.pause)
+    const { pause, isTrackSelected, isClosed, artist_image, artist_name, artist_track } = useSelector(state => state.playbarReducer)
     let startTime = useSelector(state => state.playbarReducer.playedSeconds)
     const duration = useSelector(state => state.playbarReducer.duration)
     const displayTime = useSelector(state => state.playbarReducer.show_time)
@@ -20,10 +22,54 @@ const PlayBar = () => {
     startTime = Math.floor((startTime / 60) * 100) / 100;
     let totalTime = (duration / 60).toFixed(2)
 
+    useEffect(() => {
+    }, [isClosed])
+
+    const handleOnClickPlayPause = () => {
+        if (pause) {
+            dispatch(playMusic(true))
+            dispatch(pauseMusic(false))
+            dispatch(showTime(true))
+        } else {
+            dispatch(playMusic(false))
+            dispatch(pauseMusic(true))
+            dispatch(showTime(true))
+        }
+    }
+
+    const handleOnDismissWindow = () => {
+        dispatch(closeTrackWindow(false))
+        dispatch(playMusic(false))
+        dispatch(pauseMusic(true))
+        dispatch(setTrackSelected(false))
+    }
+
     return (
         <div className="play-bar-container">
             <div className="play-bar-left">
-                <h4>left</h4>
+                <div className="play-bar-left-image">
+                    {artist_image ?
+                        <img src={artist_image} alt="" />
+                        :
+                        <img src={playerStrings.defaultImage} alt="" />
+                    }
+                </div>
+                <div>
+                    <div className="play-bar-left-artist">
+                        {artist_name ?
+                            <p>{artist_name}</p>
+                            :
+                            <p>Artist</p>
+                        }
+                    </div>
+                    <div className="play-bar-left-track">
+                        {artist_track ?
+                            <p>{artist_track}</p>
+                            :
+                            <p>Track</p>
+                        }
+                    </div>
+                </div>
             </div>
             <div className="play-bar-center">
                 <div className="icons-div">
@@ -34,22 +80,23 @@ const PlayBar = () => {
                         <button>
                             <SkipPreviousIcon className="previous-icon" />
                         </button>
-                        {pause ? <button
-                            onClick={() => {
-                                dispatch(playMusic(true))
-                                dispatch(pauseMusic(false))
-                                dispatch(showTime(true))
-                            }}>
-                            <PlayCircleFilledIcon className="play-icon" />
-                        </button> :
-                            <button
+                        {isTrackSelected ?
+                            pause ? <button
                                 onClick={() => {
-                                    dispatch(playMusic(false))
-                                    dispatch(pauseMusic(true))
-                                    dispatch(showTime(true))
+                                    handleOnClickPlayPause()
                                 }}>
-                                <PauseCircleFilledIcon className="play-icon" />
-                            </button>}
+                                <PlayCircleFilledIcon className="play-icon" />
+                            </button> :
+                                <button
+                                    onClick={() => {
+                                        handleOnClickPlayPause()
+                                    }}>
+                                    <PauseCircleFilledIcon className="play-icon" />
+                                </button> :
+                            <button>
+                                <PlayCircleFilledIcon className="play-icon" />
+                            </button>
+                        }
                         <button>
                             <SkipNextIcon className="next-icon" />
                         </button>
@@ -81,6 +128,13 @@ const PlayBar = () => {
             <div className="play-bar-right">
                 <VolumeUpIcon className="volume-icon" />
                 <input className="volume-bar" type="range" min="0" max="100" step="3" id="volume-slider" />
+                {isClosed ?
+                    <button onClick={() => handleOnDismissWindow()}>
+                        <ClearIcon className="clr-icon" />
+                    </button> :
+                    null
+                }
+
             </div>
         </div>
     )

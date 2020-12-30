@@ -9,7 +9,12 @@ const initialState = {
     loop: false,
     playedSeconds: 0,
     duration: 0,
-    show_time: true
+    show_time: true,
+    artist_image: '',
+    artist_name: '',
+    artist_track: '',
+    isTrackSelected: false,
+    isClosed: false
 }
 
 const playbarReducer = (state = initialState, action) => {
@@ -48,6 +53,36 @@ const playbarReducer = (state = initialState, action) => {
             return {
                 ...state,
                 show_time: action.payload
+            }
+        }
+        case playbarActionTypes.ARTIST_IMAGE: {
+            return {
+                ...state,
+                artist_image: action.payload
+            }
+        }
+        case playbarActionTypes.ARTIST_NAME: {
+            return {
+                ...state,
+                artist_name: action.payload
+            }
+        }
+        case playbarActionTypes.ARTIST_TRACK: {
+            return {
+                ...state,
+                artist_track: action.payload
+            }
+        }
+        case playbarActionTypes.IS_TRACK_SELECTED: {
+            return {
+                ...state,
+                isTrackSelected: action.payload
+            }
+        }
+        case playbarActionTypes.IS_CLOSED: {
+            return {
+                ...state,
+                isClosed: action.payload
             }
         }
         default: {

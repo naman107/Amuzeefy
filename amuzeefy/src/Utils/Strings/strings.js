@@ -29,5 +29,12 @@ export const storageKeys = {
 }
 
 export const playerStrings = {
-    YOUTUBE: "youtube"
+    YOUTUBE: "youtube",
+    defaultImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqlaVBZl1qSuCa4l30Ofo-mIuEwtqNrbpeEw&usqp=CAU",
+    defaultArtistName: "Artist",
+    defaultArtistTrack: "Track"
+}
+
+export const lazyLoaderGifString = {
+    LAZY_LOADER_GIF: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
 }

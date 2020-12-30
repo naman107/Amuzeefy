@@ -29,10 +29,10 @@ const Home_main = () => {
                 <div className="header-user-profile">
                     <div className="header-user-name-bio">
                         <div className="user-name">
-                            <h2>{data.name}</h2>
+                            <h2>{data?.name}</h2>
                         </div>
                         <div className="user-bio">
-                            <p>{data.bio}</p>
+                            <p>{data?.bio}</p>
                         </div>
                     </div>
                     <div className="header-user-loc-edit">
@@ -41,7 +41,7 @@ const Home_main = () => {
                         </div>
                         <div className="loc-container">
                             <LocationOnIcon className="loc-icon" />
-                            {data.loc ? <h3 className="loc-text">{data.loc}</h3> : null}
+                            {data?.loc ? <h3 className="loc-text">{data?.loc}</h3> : null}
                         </div>
                     </div>
                 </div> : null}
