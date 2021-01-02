@@ -4,6 +4,7 @@ import loginReducer from './loginReducer'
 import userDetailReducer from './userDetailReducer'
 import userReducer from './userReducer'
 import playbarReducer from './playbarReducer'
+import searchTracksReducer from './searchTracksReducer'
 
 const rootReducer = combineReducers({
     userDetailReducer: userDetailReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     userReducer: userReducer,
     hotTracksReducer: hotTracksReducer,
     playbarReducer: playbarReducer,
+    searchTracksReducer: searchTracksReducer
 })
 
 export default rootReducer

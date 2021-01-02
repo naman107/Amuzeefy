@@ -14,7 +14,8 @@ const initialState = {
     artist_name: '',
     artist_track: '',
     isTrackSelected: false,
-    isClosed: false
+    isClosed: false,
+    musicId: ''
 }
 
 const playbarReducer = (state = initialState, action) => {
@@ -83,6 +84,12 @@ const playbarReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isClosed: action.payload
+            }
+        }
+        case playbarActionTypes.MUSIC_ID: {
+            return {
+                ...state,
+                musicId: action.payload
             }
         }
         default: {

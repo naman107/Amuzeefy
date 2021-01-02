@@ -1,4 +1,4 @@
-.onboard-container{
+.track-container{
     display: flex;
     height: 20vh;
     background-color: rgb(0, 0, 0);
@@ -6,28 +6,28 @@
     border-radius: 0.8rem;
 }
 
-.onboard-container > .onboard-container-left{
+.track-container > .track-container-left{
     display: flex;
     flex: 0.7;
     justify-content: stretch;
     align-items: center;
 }
 
-.onboard-container > .onboard-container-left > .onboard-track-img{
+.track-container > .track-container-left > .onboard-track-img{
     height: 6rem;
     width: 7rem;
     margin: 1rem;
     border: 1.5px solid black;
 }
 
-.onboard-container > .onboard-container-left > .onboard-container-left-name > h4 {
+.track-container > .track-container-left > .track-container-left-name > h4 {
     color: rgb(251, 94, 22);
     font-family: monospace;
     font-size: 1.3rem;
     font-weight: 50;
 }
 
-.onboard-container > .onboard-container-left > .onboard-container-left-name > .add-to-playlist {
+.track-container > .track-container-left > .track-container-left-name > .add-to-playlist {
     color: rgb(255, 255, 255);
     margin-top: 1rem;
     height: 1.4rem;
@@ -36,26 +36,26 @@
     opacity: 0.7;
 }
 
-.onboard-container > .onboard-container-left > .onboard-container-left-name > .add-to-playlist:hover {
+.track-container > .track-container-left > .track-container-left-name > .add-to-playlist:hover {
     opacity: 1;
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.onboard-container > .onboard-right{
+.track-container > .track-right{
     display: flex;
     flex: 0.3;
     justify-content: flex-end;
     align-items: center;
 }
 
-.onboard-container > .onboard-right > button {
+.track-container > .track-right > button {
     background: transparent;
     outline: none;
     border: none;
 }
 
-.onboard-container > .onboard-right > button > .onboard-play-icon{
+.track-container > .track-right > button > .track-play-icon{
     color: rgb(251, 94, 22);
     justify-content: stretch;
     align-items: center;
@@ -65,7 +65,7 @@
     opacity: 0.7;
 }
 
-.onboard-container > .onboard-right > button > .onboard-play-icon:hover{
+.track-container > .track-right > button > .track-play-icon:hover{
     opacity: 1;
     transform: scale(1.2);
     cursor: pointer;

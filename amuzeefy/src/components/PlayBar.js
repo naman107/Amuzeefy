@@ -10,7 +10,17 @@ import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import ClearIcon from '@material-ui/icons/Clear';
 import { useDispatch, useSelector } from 'react-redux';
 import { playerStrings } from '../Utils/Strings/strings'
-import { closeTrackWindow, loopMusic, pauseMusic, playMusic, showTime, setTrackSelected } from '../redux/Actions/playbarActions'
+import {
+    closeTrackWindow,
+    loopMusic,
+    pauseMusic,
+    playMusic,
+    showTime,
+    setTrackSelected,
+    showArtistImage,
+    showArtistTrack,
+    showArtistName
+} from '../redux/Actions/playbarActions'
 
 const PlayBar = () => {
     const dispatch = useDispatch()
@@ -42,6 +52,9 @@ const PlayBar = () => {
         dispatch(playMusic(false))
         dispatch(pauseMusic(true))
         dispatch(setTrackSelected(false))
+        dispatch(showArtistImage(playerStrings.defaultImage))
+        dispatch(showArtistName(playerStrings.defaultArtistName))
+        dispatch(showArtistTrack(playerStrings.defaultArtistTrack))
     }
 
     return (

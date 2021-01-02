@@ -38,3 +38,9 @@ export const playerStrings = {
 export const lazyLoaderGifString = {
     LAZY_LOADER_GIF: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
 }
+
+export const searchStrings = {
+    searchInputString: "Search by tracks or playlists",
+    searchPlaylistsString: "Playlists",
+    searchTracksString: "Tracks"
+}

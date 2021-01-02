@@ -56,3 +56,8 @@ export const closeTrackWindow = (data) => ({
     type: playbarActionTypes.IS_CLOSED,
     payload: data
 })
+
+export const setMusicID = (data) => ({
+    type: playbarActionTypes.MUSIC_ID,
+    payload: data
+})

@@ -4,7 +4,8 @@ export const urlEndPoints = {
     redirect: 'login',
     login: 'login',
     user: 'api/user',
-    hot: 'hot'
+    hot: 'hot',
+    search: 'search'
 }
 
 export const customYoutubeURL = "https://www.youtube.com/embed/"

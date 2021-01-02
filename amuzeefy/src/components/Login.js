@@ -40,7 +40,13 @@ const Login = () => {
 
     const loginButton = () => {
         return (<div className="btn-container">
-            <button type="submit" className="btn" disabled={isErrorBar} onClick={handleOnClick}>{loginString.login}</button>
+            <button
+                type="submit"
+                className="btn"
+                disabled={isErrorBar}
+                onClick={handleOnClick}>
+                {loginString.login}
+            </button>
         </div>
         )
     }
@@ -116,7 +122,11 @@ const Login = () => {
                 <div className="login-error-header">
                     <Emoji className="login-error-text" text={errorMessage} />
                     <div className="login-error-dismiss-div">
-                        <button className="login-error-dismiss-btn" onClick={handleOnDismiss}>{loginString.dismiss}</button>
+                        <button
+                            className="login-error-dismiss-btn"
+                            onClick={handleOnDismiss}>
+                            {loginString.dismiss}
+                        </button>
                     </div>
                 </div>
                 : null
@@ -130,10 +140,20 @@ const Login = () => {
             <div className="login-main">
                 <div className="main-left-content">
                     <div>
-                        <input className="email-input" type="username" placeholder={loginString.email_ph} onChange={(e) => setEmail(e.target.value)} autoComplete="on" />
+                        <input
+                            className="email-input"
+                            type="username"
+                            placeholder={loginString.email_ph}
+                            onChange={(e) => setEmail(e.target.value)}
+                            autoComplete="on" />
                     </div>
                     <div>
-                        <input className="password-input" type="password" placeholder={loginString.password_ph} onChange={(e) => setPassword(e.target.value)} autoComplete="on" />
+                        <input
+                            className="password-input"
+                            type="password"
+                            placeholder={loginString.password_ph}
+                            onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="on" />
                     </div>
                     {isError ?
                         loginButton()

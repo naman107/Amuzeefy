@@ -9,6 +9,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import AddIcon from '@material-ui/icons/Add';
 import MenuOpenSharpIcon from '@material-ui/icons/MenuOpenSharp';
+import { Link } from 'react-router-dom'
+import { FilterNone } from '@material-ui/icons'
 
 const Sidebar = () => {
     const { data } = useSelector(state => state.userReducer.data)
@@ -28,9 +30,12 @@ const Sidebar = () => {
                 <h5>{sidebarString.logo_name}</h5>
             </div>
             <div>
-                <SidebarOptions Icon={HomeIcon} title={sidebarString.home} border={true} />
-                <SidebarOptions Icon={SearchIcon} title={sidebarString.search} border={true} />
-                {/* <SidebarOptions Icon={LibraryMusicIcon} title={sidebarString.library} border={true} /> */}
+                <Link to='/home' className="sidebar-link">
+                    <SidebarOptions Icon={HomeIcon} title={sidebarString.home} border={true} />
+                </Link>
+                <Link to='/search' className="sidebar-link" >
+                    <SidebarOptions Icon={SearchIcon} title={sidebarString.search} border={true} />
+                </Link>
                 <SidebarOptions Icon={MenuOpenSharpIcon} title={sidebarString.genres} border={true} />
             </div>
             <h3 className="playlist-heading-text">PLAYLISTS</h3>

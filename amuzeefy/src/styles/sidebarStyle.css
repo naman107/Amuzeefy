@@ -36,3 +36,8 @@
     font-family: monospace;
     font-size: 1.3rem;
 }
+
+.sidebar-container > div > .sidebar-link{
+    text-decoration: none;
+    color: white;
+}
